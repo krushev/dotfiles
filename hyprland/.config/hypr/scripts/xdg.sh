@@ -10,6 +10,12 @@
 _sleep1="0.1"
 _sleep2="0.5"
 
+#systemctl --user restart wireplumber pipewire.socket pipewire pipewire-pulse
+
+#systemctl --user restart pipewire.socket
+#systemctl --user --now enable pipewire
+#systemctl --user restart pipewire-pulse
+
 # Kill all possible running xdg-desktop-portals
 #killall -e xdg-desktop-portal-hyprland
 #killall -e xdg-desktop-portal-gtk
@@ -19,10 +25,11 @@ _sleep2="0.5"
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_SESSION_TYPE XDG_SESSION_DESKTOP XDG_CURRENT_DESKTOP
 
 # Stop all services
-systemctl --user stop pipewire 
-systemctl --user stop wireplumber 
-systemctl --user stop xdg-desktop-portal 
-systemctl --user stop xdg-desktop-portal-gtk 
+systemctl --user stop wireplumber
+systemctl --user stop pipewire.socket
+systemctl --user stop pipewire
+systemctl --user stop xdg-desktop-portal
+systemctl --user stop xdg-desktop-portal-gtk
 systemctl --user stop xdg-desktop-portal-hyprland
 sleep $_sleep1
 
@@ -41,10 +48,11 @@ sleep $_sleep1
 #sleep $_sleep2
 
 # Start required services
-systemctl --user start pipewire 
-systemctl --user start wireplumber 
-systemctl --user start xdg-desktop-portal 
-systemctl --user start xdg-desktop-portal-gtk 
+systemctl --user start pipewire
+systemctl --user start pipewire.socket 
+systemctl --user start wireplumber
+systemctl --user start xdg-desktop-portal
+systemctl --user start xdg-desktop-portal-gtk
 systemctl --user start xdg-desktop-portal-hyprland
 
 # Run waybar
