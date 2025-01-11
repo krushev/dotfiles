@@ -3,6 +3,7 @@
 format = """
 [](surface0)\
 $os\
+$hostname\
 $username\
 [](bg:peach fg:surface0)\
 $directory\
@@ -92,6 +93,13 @@ CentOS = ""
 Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
+
+[hostname]
+ssh_only = false
+style = "bg:surface0 fg:peach"
+format = '[ $hostname]($style)'
+trim_at = '.nathan3boss.com'
+disabled = false
 
 [username]
 show_always = true
