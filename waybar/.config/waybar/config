@@ -60,15 +60,16 @@
     "format-ethernet": "<span size='13000' foreground='#eba0ac'> </span>",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "<span size='13000' foreground='#f5e0dc'></span>",
-    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
+    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%",
+    "on-click": "iwgtk"
   },
   "pulseaudio": {
-      "format": "{icon} {volume}%",
-      "format-muted": "",
-      "format-icons": {
-          "default": ["", "", " "]
-      },
-      "on-click": "pavucontrol"
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", " "]
+    },
+    "on-click": "pavucontrol"
   },
   "tray": {
     "icon-size": 18,
