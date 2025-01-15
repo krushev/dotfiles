@@ -15,7 +15,7 @@
     "tooltip": false,
   },
   "clock": {
-    "timezone": "Europe/Sofia",
+//    "timezone": "Europe/Sofia",
     "format": " {:%a %d %H:%M}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
