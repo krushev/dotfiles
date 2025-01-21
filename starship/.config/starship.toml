@@ -3,8 +3,8 @@
 format = """
 [](surface0)\
 $os\
-$hostname\
 $username\
+$hostname\
 [](bg:peach fg:surface0)\
 $directory\
 [](fg:peach bg:green)\
@@ -97,7 +97,7 @@ RedHatEnterprise = "󱄛"
 [hostname]
 ssh_only = false
 style = "bg:surface0 fg:peach"
-format = '[ $hostname]($style)'
+format = '[ $hostname ]($style)'
 trim_at = '.nathan3boss.com'
 disabled = false
 
@@ -105,7 +105,7 @@ disabled = false
 show_always = true
 style_user = "bg:surface0 fg:text"
 style_root = "bg:surface0 fg:red"
-format = '[ $user ]($style)'
+format = '[ $user]($style)'
 
 [directory]
 style = "fg:mantle bg:peach"
