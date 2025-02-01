@@ -22,7 +22,8 @@ fi
 if [[ "$1" == "lock" ]]; then
     echo ":: Lock"
     sleep 0.5
-    swaylock -c 000000
+#    swaylock -c 000000
+    ~/.config/hypr/scripts/swaylock.sh
 fi
 
 if [[ "$1" == "reboot" ]]; then
