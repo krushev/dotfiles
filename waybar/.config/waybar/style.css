@@ -56,6 +56,7 @@ button:hover {
 #pulseaudio,
 #clock,
 #battery,
+#bluetooth,
 #disk,
 #temperature,
 #backlight,
@@ -97,6 +98,10 @@ button:hover {
 }
 
 #battery {
+  color: @green;
+}
+
+#bluetooth {
   color: @green;
 }
 
