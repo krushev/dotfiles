@@ -3,19 +3,27 @@
   "position": "top", // Waybar position (top|bottom|left|right)
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["tray", "network", "bluetooth", "hyprland/language", "pulseaudio", "temperature", "cpu", "memory", "battery", "clock"],
+  "modules-right": ["tray","network","hyprland/language","bluetooth","pulseaudio","cpu","memory","temperature","battery","clock"],
   "hyprland/workspaces": {
+//    "active-only": false,
+//    "all-outputs": true,
     "format": "{icon}",
     "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+ //   "persistent-workspaces": {
+ //     "*": 10
+ //   },
     "format-icons": {
-      "urgent": "",
-      "active": "",
+      "urgent":  "",
+      "active":  "",
       "default": ""
     },
     "tooltip": false,
   },
   "clock": {
     "format": " {:%a %d %H:%M}",
+    "format-alt": " {:%H:%M   %Y, %d %B, %A}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
       "mode"          : "month",
@@ -55,13 +63,28 @@
     "tooltip-format": "{time}"
   },  
   "network": {
-    "format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}",
-    "format-ethernet": "<span size='13000' foreground='#eba0ac'> </span>",
-    "format-linked": "{ifname} (No IP) !",
-    "format-disconnected": "<span size='13000' foreground='#f5e0dc'></span>",
-    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%",
-    "on-click": "iwgtk"
-  },
+    "format": "{ifname}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰌘",
+    "format-disconnected": "󰌙",
+    "tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
+    "format-linked": "󰈁 {ifname} (No IP)",
+    "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+    "tooltip-format-ethernet": "{ifname} 󰌘",
+    "tooltip-format-disconnected": "󰌙 Disconnected",
+    "max-length": 30,
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "on-click": "iwgtk",
+    "on-click-right": "kitty nmtui"
+  },  
+//  "network": {
+//    "format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}",
+//    "format-ethernet": "<span size='13000' foreground='#eba0ac'> </span>",
+//    "format-linked": "{ifname} (No IP) !",
+//    "format-disconnected": "<span size='13000' foreground='#f5e0dc'></span>",
+//    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%",
+//    "on-click": "iwgtk"
+//  },
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "",
@@ -99,14 +122,13 @@
   "cpu": {
     "format": "󰍛 {usage}%",
     "interval": 1,
-//    "tooltip": true,
-//    "min-length": 5,
+    "min-length": 5,
     "format-alt-click": "click",
     "format-alt": "󰍛 {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
     "format-icons": [
      "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"
     ],
-    "on-click-right": "gnome-system-monitor",
+    "on-click-right": "kitty --title htop sh -c 'htop'",
   },
   "memory": {
     "interval": 10,

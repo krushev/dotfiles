@@ -81,7 +81,7 @@ button:hover {
 }
 
 #pulseaudio {
-  color: @blue;
+  color: @green;
 }
 
 #network {
@@ -102,7 +102,7 @@ button:hover {
 }
 
 #bluetooth {
-  color: @green;
+  color: @blue;
 }
 
 #language {
