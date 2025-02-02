@@ -76,10 +76,6 @@ button:hover {
   padding-right: 4px;
 }
 
-#clock {
-  color: @peach;
-}
-
 #pulseaudio {
   color: @green;
 }
@@ -109,16 +105,20 @@ button:hover {
   color: @yellow;
 }
 
-#cpu {
-  color: @lavender;
+#temperature {
+  color: @teal;
 }
 
 #memory {
-  color: @rosewater;
+  color: @lavender;
 }
 
-#temperature {
-  color: @teal;
+#cpu {
+  color: @peach;
+}
+
+#clock {
+  color: @rosewater;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
