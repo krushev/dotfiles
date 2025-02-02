@@ -1,7 +1,3 @@
 #!/bin/bash
 
-IMAGE_DIR="$HOME/.config/backgrounds/"
-
-IMAGE=$(ls $IMAGE_DIR | shuf -n 1)
-
-swaylock -c 000000 -e --image $IMAGE_DIR$IMAGE
+swaylock -f -e -c 000000 --image "$(find ~/.config/backgrounds/ -type f | shuf -n 1)"

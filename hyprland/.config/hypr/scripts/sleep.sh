@@ -1,5 +1,5 @@
 #!/bin/sh
 
-swayidle -w timeout 300 'swaylock -f -c 000000' \
+swayidle -w timeout 300 '~/.config/hypr/scripts/swaylock.sh' \
             timeout 600 'systemctl suspend' \
-            before-sleep 'swaylock -f -c 000000' &
+            before-sleep '~/.config/hypr/scripts/swaylock.sh' &
