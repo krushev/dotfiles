@@ -94,7 +94,7 @@ button:hover {
 }
 
 #battery {
-  color: @green;
+  color: @flamingo;
 }
 
 #bluetooth {
