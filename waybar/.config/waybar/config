@@ -5,21 +5,18 @@
   "modules-center": ["hyprland/window"],
   "modules-right": ["tray","network","hyprland/language","bluetooth","pulseaudio","temperature","battery","memory","cpu","clock"],
   "hyprland/workspaces": {
-//    "active-only": false,
-//    "all-outputs": true,
-    "format": "{icon}",
+//  "active-only": false,
+//  "all-outputs": true,
     "on-click": "activate",
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1",
- //   "persistent-workspaces": {
- //     "*": 10
- //   },
+//  "persistent-workspaces": { "*": 10 },
+    "format": "{icon}",
     "format-icons": {
       "urgent":  "",
-      "active":  "",
-      "default": ""
+      "active":  "",
+      "default": "",
     },
-    "tooltip": false,
   },
   "clock": {
     "format": " {:%a %d %H:%M}",
