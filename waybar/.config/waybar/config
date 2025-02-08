@@ -3,7 +3,7 @@
   "position": "top", // Waybar position (top|bottom|left|right)
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["tray","network","hyprland/language","bluetooth","pulseaudio","pulseaudio#microphone","temperature","battery","memory","cpu","clock"],
+  "modules-right": ["tray","network","hyprland/language","bluetooth","pulseaudio#microphone","pulseaudio","temperature","battery","memory","cpu","clock"],
   "hyprland/workspaces": {
 //  "active-only": false,
 //  "all-outputs": true,
