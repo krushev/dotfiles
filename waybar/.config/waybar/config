@@ -20,7 +20,7 @@
   },
   "clock": {
     "format": " {:%a %d %H:%M}",
-    "format-alt": " {:%H:%M   %Y, %d %B, %A}",
+    "format-alt": " {:%A %d %B %Y %H:%M}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
       "mode"          : "month",
