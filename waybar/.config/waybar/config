@@ -13,8 +13,8 @@
 //  "persistent-workspaces": { "*": 10 },
     "format": "{icon}",
     "format-icons": {
-      "urgent":  "",
-      "active":  "",
+      "urgent":  "",
+      "active":  "",
       "default": "",
     },
   },
@@ -90,7 +90,7 @@
 //  },
 
 
-"pulseaudio": {
+  "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "",
     "on-click": "pavucontrol -t 3",
@@ -106,9 +106,9 @@
         "car": "",
         "default": ["", "", ""]
     }
-},
+  },
 
-"pulseaudio#microphone": {
+  "pulseaudio#microphone": {
     "format": "{format_source}",
     "format-source": "",
     "format-source-muted": "",
@@ -118,9 +118,7 @@
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0.2-",
     "tooltip-format": "{format_source} {source_desc} // {source_volume}%",
     "scroll-step": 5
-},
-
-
+  },
 
   "tray": {
     "icon-size": 18,
