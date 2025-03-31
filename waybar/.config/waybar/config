@@ -13,9 +13,10 @@
 //  "persistent-workspaces": { "*": 10 },
     "format": "{icon}",
     "format-icons": {
-      "urgent":  "",
-      "active":  "",
-      "default": "",
+      "urgent":   "",
+      "active":   "",
+      "default":  "",
+      "inactive": ""
     },
   },
   "clock": {

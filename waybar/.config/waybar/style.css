@@ -20,8 +20,8 @@ window#waybar {
 
 #window {
   margin: 4px;
-  padding-left: 4;
-  padding-right: 4;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 button {
