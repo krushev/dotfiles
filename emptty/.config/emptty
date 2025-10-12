@@ -1,0 +1,3 @@
+Name=Hyprland
+Exec=/usr/local/bin/Hyprland
+Environment=wayland
