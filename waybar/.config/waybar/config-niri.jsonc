@@ -1,0 +1,202 @@
+{
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "modules-left": ["niri/workspaces"],
+  "modules-center": ["niri/window"],
+  "modules-right": [
+    "tray",
+    "network",
+    "niri/language",
+    "bluetooth",
+    "pulseaudio#microphone",
+    "pulseaudio",
+    "temperature",
+    "battery",
+    "memory",
+    "cpu",
+    "clock"
+  ],
+  "niri/workspaces": {
+//  "active-only": false,
+//  "all-outputs": true,
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+//  "persistent-workspaces": { "*": 10 },
+    "format": "{icon}",
+    "format-icons": {
+      "urgent":   "",
+      "active":   "",
+      "default":  "",
+      "inactive": "",
+      "browser": "",
+      "discord": "",
+      "chat": "<b></b>"
+    },
+  },
+  "clock": {
+    "format": " {:%a %d %H:%M}",
+    "format-alt": " {:%A %d %B %Y %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode"          : "month",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "right",
+      "on-scroll"     : 1,
+      "on-click-right": "mode",
+      "format": {
+        "months":   "<span color='#eba0ac'><b>{}</b></span>",
+        "days":     "<span color='#f5e0dc'><b>{}</b></span>",
+        "weeks":    "<span color='#fab387'><b>W{}</b></span>",
+        "weekdays": "<span color='#a6e3a1'><b>{}</b></span>",
+        "today":    "<span color='#f38ba8'><b>{}</b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right":    "mode",
+      "on-click-forward":  "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up":      "shift_up",
+      "on-scroll-down":    "shift_down"
+    }
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<span size='13000' foreground='#f2cdcd'>{icon}</span>{capacity}%",
+    "format-warning": "<span size='13000' foreground='#B1E3AD'>{icon}</span>{capacity}%",
+    "format-critical": "<span size='13000' foreground='#E38C8F'>{icon}</span>{capacity}%",
+    "format-charging": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-plugged": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-alt": "<span size='13000' foreground='#B1E3AD'>{icon}</span>{time}",
+    "format-full": "<span size='13000' foreground='#f2cdcd'> </span>{capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip-format": "{time}"
+  },  
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰌘",
+    "format-disconnected": "󰌙",
+    "tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
+    "format-linked": "󰈁 {ifname} (No IP)",
+    "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+    "tooltip-format-ethernet": "{ifname} 󰌘",
+    "tooltip-format-disconnected": "󰌙 Disconnected",
+    "max-length": 30,
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "on-click": "iwgtk",
+    "on-click-right": "kitty nmtui"
+  },  
+//  "network": {
+//    "format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}",
+//    "format-ethernet": "<span size='13000' foreground='#eba0ac'> </span>",
+//    "format-linked": "{ifname} (No IP) !",
+//    "format-disconnected": "<span size='13000' foreground='#f5e0dc'></span>",
+//    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%",
+//    "on-click": "iwgtk"
+//  },
+//  "pulseaudio": {
+//    "format": "{icon} {volume}%",
+//    "format-muted": "",
+//    "format-icons": ["", "", "󰕾", ""],
+//    "on-click": "pavucontrol -t 3"
+//  },
+
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "on-click": "pavucontrol -t 3",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "tooltip-format": "{icon} {desc} // {volume}%",
+    "scroll-step": 5,
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+    }
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "",
+    "format-source-muted": "",
+    "on-click": "pavucontrol -t 4",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0.2+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0.2-",
+    "tooltip-format": "{format_source} {source_desc} // {source_volume}%",
+    "scroll-step": 5
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂳",
+    "format-connected": "󰂱 {num_connections}",
+    "tooltip-format": " {device_alias}",
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": " {device_alias} 󰂄{device_battery_percentage}%",
+    "tooltip": true,
+    "on-click": "kitty /home/igi/Programs/bluetuith/bluetuith",
+  },
+  "niri/language": {
+      "format": "{}", 
+      "format-en": "EN",
+      "format-bg": "BG",
+      //"keyboard-name": "air75-bt5.0",
+      //"on-click": "hyprctl switchxkblayout air75-bt5.0 next"
+      "on-click": "hyprctl switchxkblayout $(hyprctl devices -j | jq -r '.keyboards | .[] | select(.main == true) | .name') next"
+  },
+  "custom/mem": {
+    "format": "{}",
+    "interval": 3,
+    "exec": "free -h | awk '/Mem:/{printf $3}'",
+    "tooltip": false
+  },
+  "cpu": {
+    "format": "󰍛 {usage}%",
+    "interval": 1,
+    "min-length": 5,
+    "format-alt-click": "click",
+    "format-alt": "󰍛 {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
+    "format-icons": [
+     "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"
+    ],
+    "on-click-right": "kitty --title htop sh -c 'htop'",
+  },
+  "memory": {
+    "interval": 10,
+    "format": "󰾆 {used:0.1f}G",
+    "format-alt": "󰾆 {percentage}%",
+    "format-alt-click": "click",
+    "tooltip": true,
+    "tooltip-format": "Physical: {used:0.1f}G / {total:0.1f}G \nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G",
+    "on-click-right": "kitty --title btop sh -c 'btop'"
+  },
+  "temperature": {
+    "interval": 10,
+    "tooltip": true,
+    "hwmon-path": [
+      "/sys/class/hwmon/hwmon1/temp1_input",
+      "/sys/class/thermal/thermal_zone0/temp",
+      "/sys/devices/platform/dell_smm_hwmon/hwmon"
+    ],
+    //"thermal-zone": 0,
+    "critical-threshold": 82,
+    "format": "{icon} {temperatureC}°C",
+    "format-critical": "{icon} {temperatureC}°C",
+    "format-icons": ["󱃃", "󰔏", "󱃂"],
+    "on-click-right": "kitty --title nvtop sh -c 'nvtop'"
+  }  
+}
