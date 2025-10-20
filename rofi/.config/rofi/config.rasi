@@ -7,7 +7,7 @@ configuration {
 }
 
 * {
-    font: "Jetbrains Mono 12";
+    font: "CaskaydiaCove Nerd Font 12";
     foreground: #f8f8f2;
     background-color: #282a36;
     active-background: #A57DAA;
@@ -21,7 +21,7 @@ configuration {
 }
 
 #window {
-    width: 40%;
+    width: 30%;
     background-color: @background-color;
     border:           1;
     border-radius:    0;
@@ -124,7 +124,7 @@ configuration {
 }
 #textbox-prompt-colon {
     expand:     false;
-    str:        ">";
+    str:        "> ";
     margin:     0px 0.3em 0em 0em ;
     text-color: @foreground;
 }
