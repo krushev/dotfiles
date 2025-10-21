@@ -67,6 +67,7 @@ button:hover {
 #language,
 #cpu,
 #memory,
+#custom-power,
 #scratchpad {
   margin-top: 2px;
   margin-bottom: 0px;
@@ -136,5 +137,9 @@ button:hover {
   border-radius: 15px;
   padding-left: 6px;
   padding-right: 6px;
+}
+
+#custom-power {
+  color: @text;
 }
 

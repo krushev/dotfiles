@@ -14,7 +14,8 @@
     "battery",
     "memory",
     "cpu",
-    "clock"
+    "clock",
+	"custom/power"
   ],
   "hyprland/workspaces": {
 //  "active-only": false,
@@ -163,6 +164,11 @@
     "interval": 3,
     "exec": "free -h | awk '/Mem:/{printf $3}'",
     "tooltip": false
+  },
+  "custom/power":{
+    "format": "⏻",
+    "on-click": "~/.config/hypr/scripts/power_menu.sh top-right",
+	"tooltip": false
   },
   "cpu": {
     "format": "󰍛 {usage}%",
