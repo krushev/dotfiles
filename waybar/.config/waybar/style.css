@@ -41,7 +41,7 @@ button:hover {
 
 #workspaces button.focused {
   background-color: rgba(0, 0, 0, 0.3);
-  color: @rosewater;
+  color: @mauve;
 }
 
 #workspaces button.active {
@@ -74,15 +74,15 @@ button:hover {
   margin-left: 4px;
   margin-right: 4px;
   padding-left: 4px;
-  padding-right: 4px;
+  padding-right: 0px;
 }
 
 #pulseaudio {
-  color: @green;
+  color: @sapphire;
 }
 
 #network {
-  color: @maroon;
+  color: @flamingo;
 }
 
 #idle_inhibitor {
@@ -99,27 +99,27 @@ button:hover {
 }
 
 #bluetooth {
-  color: @blue;
+  color: @mauve;
 }
 
 #language {
-  color: @yellow;
+  color: @rosewater;
 }
 
 #temperature {
-  color: @teal;
+  color: @maroon;
 }
 
 #memory {
-  color: @lavender;
-}
-
-#cpu {
   color: @peach;
 }
 
+#cpu {
+  color: @pink;
+}
+
 #clock {
-  color: @rosewater;
+  color: @yellow;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -140,6 +140,6 @@ button:hover {
 }
 
 #custom-power {
-  color: @text;
+  color: @lavender;
 }
 

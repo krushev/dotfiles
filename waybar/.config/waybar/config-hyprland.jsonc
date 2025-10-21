@@ -5,15 +5,15 @@
   "modules-center": ["hyprland/window"],
   "modules-right": [
     "tray",
-    "network",
     "hyprland/language",
+    "network",
+    "cpu",
     "bluetooth",
     "pulseaudio#microphone",
     "pulseaudio",
     "temperature",
     "battery",
     "memory",
-    "cpu",
     "clock",
 	"custom/power"
   ],
