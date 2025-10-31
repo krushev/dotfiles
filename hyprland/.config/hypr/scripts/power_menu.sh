@@ -21,7 +21,8 @@ confirm_action() {
 
 case $SELECTION in
     *"󰌾 Lock"*)
-	    swaylock -f -e -c 000000 --image "$(find ~/.config/backgrounds/ -type f | shuf -n 1)";;
+#	    swaylock -f -e -c 000000 --image "$(find ~/.config/backgrounds/ -type f | shuf -n 1)";;
+        hyprlock;;
     *"󰤄 Suspend"*)
         if confirm_action "Suspend"; then
             systemctl suspend
