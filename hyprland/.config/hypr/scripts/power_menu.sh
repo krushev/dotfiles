@@ -4,14 +4,14 @@ ALIGNMENT=""
 
 case "$1" in
   top-left|top-right|bottom-left|bottom-right)
-    ALIGNMENT="-a $1"
+    ALIGNMENT="-f CaskaydiaCoveNerdFont:size=10 -w 16 -a $1"
     ;;
   *)
-    # Do nothing for invalid or empty input
+    ALIGNMENT="-f CaskaydiaCoveNerdFont:size=16 -w 18 --line-height=25 -x 50 -y 20 -P 20" 
     ;;
 esac
 
-SELECTION="$(printf "󰌾 Lock\n󰤄 Suspend\n󰍃 Log out\n Reboot\n Reboot to UEFI\n󰐥 Shutdown" | fuzzel --dmenu $ALIGNMENT -l 6 -w 18 -p "Select an option: ")"
+SELECTION="$(printf "󰌾 Lock\n󰤄 Suspend\n󰍃 Log out\n Reboot\n Reboot to UEFI\n󰐥 Shutdown" | fuzzel --dmenu $ALIGNMENT -l 6 -p "")"
 
 confirm_action() {
     local action="$1"
