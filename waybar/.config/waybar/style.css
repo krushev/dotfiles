@@ -103,7 +103,7 @@ button:hover {
 }
 
 #language {
-  color: @rosewater;
+  color: @rosewater; font-family: "DejaVu Sans"; font-size: 22px;
 }
 
 #temperature {

@@ -22,26 +22,27 @@ confirm_action() {
 case $SELECTION in
     *"󰌾 Lock"*)
 #	    swaylock -f -e -c 000000 --image "$(find ~/.config/backgrounds/ -type f | shuf -n 1)";;
-        hyprlock;;
+      hyprlock;;
     *"󰤄 Suspend"*)
-        if confirm_action "Suspend"; then
-            systemctl suspend
-        fi;;
+      if confirm_action "Suspend"; then
+          systemctl suspend
+      fi;;
     *"󰍃 Log out"*)
-        if confirm_action "Log out"; then
-		  # killall -9 Hyprland
-		  hyprctl dispatch exit
-        fi;;
+      if confirm_action "Log out"; then
+		    # killall -9 Hyprland
+        hyprctl dispatch exit
+        #swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your     Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+      fi;;
     *" Reboot"*)
-        if confirm_action "Reboot"; then
-            systemctl reboot
-        fi;;
+      if confirm_action "Reboot"; then
+        systemctl reboot
+      fi;;
     *" Reboot to UEFI"*)
-        if confirm_action "Reboot to UEFI"; then
-            systemctl reboot --firmware-setup
-        fi;;
+      if confirm_action "Reboot to UEFI"; then
+        systemctl reboot --firmware-setup
+      fi;;
     *"󰐥 Shutdown"*)
-        if confirm_action "Shutdown"; then
-            systemctl poweroff
-        fi;;
+      if confirm_action "Shutdown"; then
+        systemctl poweroff
+      fi;;
 esac

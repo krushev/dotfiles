@@ -1,0 +1,101 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+# set $term foot
+set $term kitty
+# Your preferred application launcher
+# set $menu wmenu-run
+set $menu fuzzel
+
+include /etc/sway/config-vars.d/*
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# This is commented in Debian, because the Sway wallpaper files are in a separate
+# package `sway-backgrounds`. Installing this package drops a config file to
+# /etc/sway/config.d/
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+# XDG_CURRENT_DESKTOP="${XDG_CURRENT_DESKTOP:-sway}"
+
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+# Remove borders for all windows
+# default_border none
+default_border pixel 2
+# default_floating_border none
+default_floating_border pixel 2
+disable_titlebar yes
+
+#font pango:monospace 0
+titlebar_padding 1
+titlebar_border_thickness 0
+
+# hide border when only one window
+hide_edge_borders --i3 none
+# hide_edge_borders --i3 smart
+
+### Input configuration
+#
+# Example configuration:
+#
+#   input type:touchpad {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+   input type:keyboard {
+       xkb_layout "us,bg"
+       xkb_variant ,phonetic
+       xkb_options grp:alt_shift_toggle
+   }
+#
+# You can also configure each device individually.
+# Read `man 5 sway-input` for more information about this section.
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    swaybar_command waybar #-c ~/.config/waybar/config-sway.jsonc
+#    position top
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+#    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+
+#    colors {
+#        statusline #ffffff
+#        background #323232
+#        inactive_workspace #32323200 #32323200 #5c5c5c
+#    }
+}
+
+# include /etc/sway/config.d/*
+include ~/.config/sway/conf.d/*

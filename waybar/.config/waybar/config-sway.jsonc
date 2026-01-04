@@ -1,11 +1,11 @@
 {
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
-  "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["hyprland/window"],
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-center": ["sway/window"],
   "modules-right": [
-    "hyprland/language",
     "tray",
+    "sway/language",
     "network",
     "cpu",
     "bluetooth",
@@ -15,9 +15,9 @@
     "battery",
     "memory",
     "clock",
-	"custom/power"
+   	"custom/power"
   ],
-  "hyprland/workspaces": {
+  "sway/workspaces": {
 //  "active-only": false,
 //  "all-outputs": true,
     "on-click": "activate",
@@ -27,13 +27,15 @@
     "format": "{icon}",
     "format-icons": {
       "urgent":   "",
-      "active":   "",
+      "focused":  "",
       "default":  "",
-      "inactive": "",
-      "browser": "",
-      "discord": "",
+      "browser":  "",
+      "discord":  "",
       "chat": "<b></b>"
-    },
+   },
+  },
+  "sway/mode": {
+    "format": "<span style=\"italic\">{}</span>"
   },
   "clock": {
     "format": " {:%a %d %H:%M}",
@@ -153,13 +155,9 @@
     "tooltip": true,
     "on-click": "kitty /home/igi/Programs/bluetuith/bluetuith",
   },
-  "hyprland/language": {
+  "sway/language": {
       "format": "{}", 
-      "format-en": "en",
-      "format-bg": "bg",
-      //"keyboard-name": "air75-bt5.0",
-      //"on-click": "hyprctl switchxkblayout air75-bt5.0 next"
-      "on-click": "hyprctl switchxkblayout $(hyprctl devices -j | jq -r '.keyboards | .[] | select(.main == true) | .name') next"
+      "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
   },
   "custom/mem": {
     "format": "{}",
