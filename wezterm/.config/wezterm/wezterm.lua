@@ -30,9 +30,15 @@ config.use_fancy_tab_bar = false
 
 -- Key bindings
 config.keys = {
-  { key = 'q', mods = 'CTRL', action = wezterm.action.CloseCurrentPane { confirm = false }, },
+  { key = 'q', mods = 'CTRL', action = wezterm.action.CloseCurrentPane { confirm = true }, },
   { key = 'Enter', mods = 'CTRL|SHIFT', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }, },
-  { key = 'z', mods = 'CTRL|SHIFT', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
+  { key = 'Enter', mods = 'CTRL|ALT', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
+  -- Swap panes
+  { key = 'r', mods = 'CTRL|SHIFT', action = act.PaneSelect { mode = 'SwapWithActive' } },  
+  -- Rotate panes (this actually reorders them)
+  { key = 's', mods = 'CTRL|SHIFT', action = wezterm.action.RotatePanes 'CounterClockwise', },
+  { key = 'S', mods = 'CTRL|SHIFT', action = wezterm.action.RotatePanes 'Clockwise', },
+
   { key = '1', mods = 'ALT', action = act.ActivateTab(0) },
   { key = '2', mods = 'ALT', action = act.ActivateTab(1) },
   { key = '3', mods = 'ALT', action = act.ActivateTab(2) },
