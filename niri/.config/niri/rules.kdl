@@ -41,6 +41,16 @@ window-rule {
   default-column-width { proportion 0.2; }
 }
 
+window-rule {
+  match title=r#"(?i)dialog"#
+  match title=r#"^Extension: "#
+  match title=r#"^File Properties"#
+
+  open-floating true
+  default-column-width {}
+  default-window-height {}
+}
+
 // Idle inhibit for Browsers on YouTube
 //window-rule {
 //    match app-id=r#"^(firefox|org\.mozilla\.firefox|google-chrome|chromium|brave-browser|zen)$"#
