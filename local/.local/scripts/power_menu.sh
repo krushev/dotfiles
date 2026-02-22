@@ -30,7 +30,8 @@ case $SELECTION in
     *"󰍃 Log out"*)
       if confirm_action "Log out"; then
 		    # killall -9 Hyprland
-        hyprctl dispatch exit
+        # hyprctl dispatch exit
+        niri msg action quit --skip-confirmation
         #swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your     Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
       fi;;
     *" Reboot"*)
