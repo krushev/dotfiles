@@ -51,6 +51,14 @@ window-rule {
   default-window-height {}
 }
 
+// Block out password managers from screencasts.
+window-rule {
+  match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+  match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+  block-out-from "screencast"
+}
+
 // Idle inhibit for Browsers on YouTube
 //window-rule {
 //    match app-id=r#"^(firefox|org\.mozilla\.firefox|google-chrome|chromium|brave-browser|zen)$"#

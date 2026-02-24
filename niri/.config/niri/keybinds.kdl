@@ -19,7 +19,7 @@ binds {
   Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
   Mod+E hotkey-overlay-title="Open a Thunar: thunar" { spawn "thunar"; }
   Mod+T hotkey-overlay-title="Open a Mousepad: mousepad" { spawn "mousepad"; }
-  Mod+Z hotkey-overlay-title="Open a Zed: zed" { spawn "zed"; }
+  // Mod+Z hotkey-overlay-title="Open a Zed: zed" { spawn "zed"; }
   Mod+N hotkey-overlay-title="Open a Gnote: gnote" { spawn "gnote"; }
   Mod+W hotkey-overlay-title="Open a IwGTK: iwgtk" { spawn "iwgtk"; }
   Mod+A hotkey-overlay-title="Open a pavucontrol: pavucontrol" { spawn "pavucontrol"; }
@@ -287,4 +287,8 @@ binds {
   // Powers off the monitors. To turn them back on, do any input like
   // moving the mouse or pressing any other key.
   Mod+Shift+P { power-off-monitors; }
+
+  // Left click at current cursor position
+  Alt+Z { spawn "ydotool" "click" "0xC0"; }
+    
 }
