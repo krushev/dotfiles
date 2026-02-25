@@ -163,9 +163,7 @@
     "format": "{}",
     "format-en": "en",
     "format-bg": "bg",
-    //"keyboard-name": "air75-bt5.0",
-    //"on-click": "hyprctl switchxkblayout air75-bt5.0 next"
-    "on-click": "hyprctl switchxkblayout $(hyprctl devices -j | jq -r '.keyboards | .[] | select(.main == true) | .name') next",
+    "on-click": "niri msg action switch-layout next",
   },
 
   "custom/mem": {
