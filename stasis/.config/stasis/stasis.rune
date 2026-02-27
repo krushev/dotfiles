@@ -81,28 +81,44 @@ stasis:
     "mpv"
     r"steam_app_.*"
   ]
+
+  lock_screen:
+    timeout 300 # 5 minute(s)
+    command "~/.local/scripts/swaylock.sh"
+  end
+  
+  dpms:
+    timeout 360 # 6 minute(s) after lock
+    command "niri msg action power-off-monitors"
+    resume-command "niri msg action power-on-monitors"
+  end
+  
+  suspend:
+    timeout 1800 # 30 minute(s) after dpms
+    command "systemctl suspend"
+  end
   
   # Laptop-specific: AC power settings (relaxed timeouts)
   on_ac:
     brightness:
-      timeout 300 # 5 minute(s)
+      timeout 300 # 300 = 5 minute(s)
       command "brightnessctl set 50%"
     end
     
     dpms:
-      timeout 120 # 2 minute(s) after brightness
+      timeout 120 # i120 = 2 minute(s) after brightness
       command "niri msg action power-off-monitors"
       resume-command "niri msg action power-on-monitors"
     end
     
     lock_screen:
-      timeout 180 # 3 minute(s) after dpms
+      timeout 180 # 180 = 3 minute(s) after dpms
       # command "swaylock"
       command "~/.local/scripts/swaylock.sh"
     end
     
     suspend:
-      timeout 600 # 10 minute(s) after lock
+      timeout 600 # 600 = 10 minute(s) after lock
       command "systemctl suspend"
     end
   end
@@ -115,18 +131,18 @@ stasis:
     end
     
     dpms:
-      timeout 30 # 30 second(s) after brightness
+      timeout 30 # 30 = 30 second(s) after brightness
       command "niri msg action power-off-monitors"
       resume-command "niri msg action power-on-monitors"
     end
     
     lock_screen:
-      timeout 60 # 1 minute(s) after dpms
-      command "swaylock"
+      timeout 60 # 60 = 1 minute(s) after dpms
+      command "~/.local/scripts/swaylock.sh"
     end
     
     suspend:
-      timeout 120 # 2 minute(s) after lock
+      timeout 120 # 120 = 2 minute(s) after lock
       command "systemctl suspend"
     end
   end
