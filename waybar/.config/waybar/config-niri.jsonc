@@ -16,14 +16,31 @@
     "memory",
     "clock",
     "custom/power",
+    "custom/stasis",
   ],
+
+  "custom/stasis": {
+    "exec": "stasis info --json",
+    "format": "{icon}",
+    "format-icons": {
+      "idle_active": "",
+      "idle_inhibited": "",
+      "manually_inhibited": "",
+      "not_running": "󰒲"
+    },
+    "tooltip": true,
+    "on-click": "stasis toggle-inhibit",
+    "interval": 2,
+    "restart-interval": 2,
+    "return-type": "json"
+  },
 
   "niri/workspaces": {
     //  "active-only": false,
     //  "all-outputs": true,
     "on-click": "activate",
-    "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "on-scroll-up": "niri msg action focus-workspace-up",
+    "on-scroll-down": "niri msg action focus-workspace-down",
     //  "persistent-workspaces": { "*": 10 },
     "format": "{icon}",
     "format-icons": {
@@ -175,7 +192,7 @@
 
   "custom/power": {
     "format": "⏻",
-    "on-click": "~/.config/hypr/scripts/power_menu.sh top-right",
+    "on-click": "~/.local/scripts/power_menu.sh top-right",
     "tooltip": false,
   },
 
