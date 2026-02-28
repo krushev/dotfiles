@@ -2,7 +2,7 @@
 @description "Lightweight feature packed idle manager for Wayland"
 
 lock_after        300 # 5 minute(s)
-screen_off_after  360 # 6 minute(s) 
+screen_off_after  60  # 1 minute(s) after lockscreen
 suspend_after     1800 # 30 minute(s)
 debounce_seconds  4
 notify_seconds    5
@@ -11,17 +11,17 @@ default:
   enable_loginctl false
   #pre_suspend_command "swaylock"
 
-  monitor_media true 
+  monitor_media true
   ignore_remote_media true
-  media_blacklist ["vivaldi", "brave"]
+  media_blacklist ["vivaldi"]
 
   debounce_seconds debounce_seconds
 
   # Notify when resuming from IPC pause (e.g., `stasis pause 1h`)
-  #notify_on_unpause true
+  notify_on_unpause true
 
   # Global gate: notifications before steps only happen if this is true
-  #notify_before_action true
+  notify_before_action true
   
   # For laptops:
   #
@@ -50,7 +50,7 @@ default:
 
   lock_screen:
     timeout lock_after
-    command "~/.local/scripts/swaylock.sh"
+    command "swaylock -e -c 000000 --image $(find $HOME/.config/backgrounds/ -type f | shuf -n 1)"
     resume_command "notify-send 'Welcome back $env.USER'"
     notification "Locking soon"
     notify_seconds_before notify_seconds

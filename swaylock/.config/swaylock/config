@@ -28,10 +28,10 @@ indicator-caps-lock
 image=~/.config/backgrounds/mountain-lake.jpg
 
 # Fade in time
-fade-in=1
+#fade-in=1
 
 # Effect for background
-effect-blur=7x5
+#effect-blur=7x5
 # effect-greyscale
 # effect-pixelate=5
 
