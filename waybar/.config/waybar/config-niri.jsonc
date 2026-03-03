@@ -24,6 +24,7 @@
     "format": "{icon}",
     "format-icons": {
       "idle_active": "",
+      "idle_waiting": "",
       "idle_inhibited": "",
       "manually_inhibited": "",
       "not_running": "󰒲"
@@ -31,7 +32,6 @@
     "tooltip": true,
     "on-click": "stasis toggle-inhibit",
     "interval": 2,
-    "restart-interval": 2,
     "return-type": "json"
   },
 

@@ -8,12 +8,10 @@ debounce_seconds  4
 notify_seconds    5
 
 default:
+  respect_wayland_inhibitors = true
+
   enable_loginctl false
   #pre_suspend_command "swaylock"
-
-  monitor_media true
-  ignore_remote_media true
-  media_blacklist ["vivaldi"]
 
   debounce_seconds debounce_seconds
 
