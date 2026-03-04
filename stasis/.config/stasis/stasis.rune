@@ -84,10 +84,10 @@ default:
       command "~/.local/scripts/swaylock.sh"
     end
     
-    suspend:
-      timeout 600 # 600 = 10 minute(s) after lock
-      command "systemctl suspend"
-    end
+#    suspend:
+#      timeout 600 # 600 = 10 minute(s) after lock
+#      command "systemctl suspend"
+#    end
   end
   
   # Laptop-specific: Battery power settings (aggressive power saving)
@@ -108,9 +108,9 @@ default:
       command "~/.local/scripts/swaylock.sh"
     end
     
-    suspend:
-      timeout 120 # 120 = 2 minute(s) after lock
-      command "systemctl suspend"
-    end
+#    suspend:
+#      timeout 120 # 120 = 2 minute(s) after lock
+#      command "systemctl suspend"
+#    end
   end
 end
