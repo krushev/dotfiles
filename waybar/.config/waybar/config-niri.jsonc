@@ -15,8 +15,8 @@
     "battery",
     "memory",
     "clock",
-    "custom/power",
     "custom/stasis",
+    "custom/power",
   ],
 
   "custom/stasis": {

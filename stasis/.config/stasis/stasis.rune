@@ -1,18 +1,41 @@
 @author "Dustin Pilgrim"
 @description "Lightweight feature packed idle manager for Wayland"
 
-lock_after        300 # 5 minute(s)
-screen_off_after  60  # 1 minute(s) after lockscreen
+lock_after        30  # 5 minute(s)
+screen_off_after  6   # 1 minute(s) after lockscreen
 suspend_after     1800 # 30 minute(s)
 debounce_seconds  4
 notify_seconds    5
 
 default:
-  respect_wayland_inhibitors = true
+  # Optional: listen for loginctl lock/unlock-session signals (default false)
+  # NOTE: this only updates internal state when lock/unlock signals are received;
+  # it does not actually run your locker command.
+  enable_loginctl true
 
-  enable_loginctl false
+  # Optional: listen for session D-Bus inhibit traffic (default true).
+  # This gate is not browser-only: browsers, Steam, and other desktop apps can
+  # request inhibit through standard D-Bus/portal paths.
+  # Browser/media-tab inhibit lives here, not under monitor_media.
+  # Disable this only if you explicitly do not want D-Bus inhibit requests
+  # to pause idle progression.
+  #enable_dbus_inhibit false
+
+  # Optional: run before suspending (e.g., ensure lock is up)
   #pre_suspend_command "swaylock"
 
+  # Optional: run before suspending (e.g., ensure lock is up)
+  #pre_suspend_command "swaylock"
+
+  # Non-browser media/audio inhibit only. Browser/media-tab inhibit is handled
+  # by enable_dbus_inhibit above.
+  monitor_media true
+  ignore_remote_media true # ignore remote players (spotify/kdeconnect/etc.)
+
+  # Optional: ignore these media sources for media inhibit (case-insensitive)
+  #media_blacklist ["spotify"]
+
+  # Debounce window in seconds before starting the plan (default 0)
   debounce_seconds debounce_seconds
 
   # Notify when resuming from IPC pause (e.g., `stasis pause 1h`)
@@ -20,7 +43,7 @@ default:
 
   # Global gate: notifications before steps only happen if this is true
   notify_before_action true
-  
+
   # For laptops:
   #
   # you can specify an action to do on lid close/open
@@ -30,7 +53,7 @@ default:
   # lid_open_action:
   #   can be one of: wake | custom | ignore
   #
-  # NOTE: For custom just define a string directly do NOT write 
+  # NOTE: For custom just define a string directly do NOT write
   # `custom`
   #
   # i.e. lid_close_action "hyprlock && sleep 3 && systemctl suspend"
@@ -40,6 +63,7 @@ default:
   #lid_close_action "lock-screen"
   #lid_open_action "wake"
 
+  # App/process inhibit patterns (strings or regex literals)
   inhibit_apps [
     "vlc"
     "mpv"
@@ -53,61 +77,61 @@ default:
     notification "Locking soon"
     notify_seconds_before notify_seconds
   end
-  
+
   dpms:
     timeout screen_off_after
     command "niri msg action power-off-monitors"
     resume-command "niri msg action power-on-monitors"
   end
-  
-  suspend:
-    timeout suspend_after
-    command "systemctl suspend"
-  end
-  
+
+#  suspend:
+#    timeout suspend_after
+#    command "systemctl suspend"
+#  end
+
   # Laptop-specific: AC power settings (relaxed timeouts)
   on_ac:
     brightness:
       timeout 300 # 300 = 5 minute(s)
       command "brightnessctl set 50%"
     end
-    
+
     dpms:
       timeout 120 # i120 = 2 minute(s) after brightness
       command "niri msg action power-off-monitors"
       resume-command "niri msg action power-on-monitors"
     end
-    
+
     lock_screen:
       timeout 180 # 180 = 3 minute(s) after dpms
       # command "swaylock"
       command "~/.local/scripts/swaylock.sh"
     end
-    
+
 #    suspend:
 #      timeout 600 # 600 = 10 minute(s) after lock
 #      command "systemctl suspend"
 #    end
   end
-  
+
   # Laptop-specific: Battery power settings (aggressive power saving)
   on_battery:
     brightness:
       timeout 60 # 1 minute(s)
       command "brightnessctl set 30%"
     end
-    
+
     dpms:
       timeout 30 # 30 = 30 second(s) after brightness
       command "niri msg action power-off-monitors"
       resume-command "niri msg action power-on-monitors"
     end
-    
+
     lock_screen:
       timeout 60 # 60 = 1 minute(s) after dpms
       command "~/.local/scripts/swaylock.sh"
     end
-    
+
 #    suspend:
 #      timeout 120 # 120 = 2 minute(s) after lock
 #      command "systemctl suspend"
