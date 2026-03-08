@@ -1,7 +1,7 @@
 @author "Dustin Pilgrim"
 @description "Lightweight feature packed idle manager for Wayland"
 
-lock_after        30  # 5 minute(s)
+lock_after        10  # 5 minute(s)
 screen_off_after  6   # 1 minute(s) after lockscreen
 suspend_after     1800 # 30 minute(s)
 debounce_seconds  4
@@ -11,7 +11,7 @@ default:
   # Optional: listen for loginctl lock/unlock-session signals (default false)
   # NOTE: this only updates internal state when lock/unlock signals are received;
   # it does not actually run your locker command.
-  enable_loginctl true
+  #enable_loginctl true
 
   # Optional: listen for session D-Bus inhibit traffic (default true).
   # This gate is not browser-only: browsers, Steam, and other desktop apps can
@@ -20,9 +20,6 @@ default:
   # Disable this only if you explicitly do not want D-Bus inhibit requests
   # to pause idle progression.
   #enable_dbus_inhibit false
-
-  # Optional: run before suspending (e.g., ensure lock is up)
-  #pre_suspend_command "swaylock"
 
   # Optional: run before suspending (e.g., ensure lock is up)
   #pre_suspend_command "swaylock"
