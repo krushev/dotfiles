@@ -102,7 +102,7 @@ default:
     lock_screen:
       timeout 180 # 180 = 3 minute(s) after dpms
       # command "swaylock"
-      command "~/.local/scripts/swaylock.sh"
+      command "swaylock -e -c 000000 --image $(find $HOME/.config/backgrounds/ -type f | shuf -n 1)"
     end
 
 #    suspend:
@@ -126,7 +126,7 @@ default:
 
     lock_screen:
       timeout 60 # 60 = 1 minute(s) after dpms
-      command "~/.local/scripts/swaylock.sh"
+      command "swaylock -e -c 000000 --image $(find $HOME/.config/backgrounds/ -type f | shuf -n 1)"
     end
 
 #    suspend:
