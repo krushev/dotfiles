@@ -1,9 +1,9 @@
 @author "Dustin Pilgrim"
 @description "Lightweight feature packed idle manager for Wayland"
 
-lock_after        10  # 5 minute(s)
-screen_off_after  6   # 1 minute(s) after lockscreen
-suspend_after     1800 # 30 minute(s)
+lock_after        300  #  5 minute(s)
+screen_off_after  60   #  1 minute(s) after lockscreen
+suspend_after     1800 # 30 minute(s) after screen lock
 debounce_seconds  4
 notify_seconds    5
 
